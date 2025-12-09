@@ -6,7 +6,6 @@ Crowdsourcing Image Annotation System
 
 CrowdLabel is a crowdsourcing-based image annotation system that supports multi-user collaborative labeling, automatic consensus detection, manual review, and payment management. The system uses a frontend-backend separation architecture with Django REST Framework as the backend API and React + TypeScript as the frontend framework.
 
-**For detailed project report, see:** [docs/PROJECT_REPORT.md](docs/PROJECT_REPORT.md)
 
 ## Project Structure
 
@@ -43,9 +42,6 @@ crowdlabel_system/
 │   │   └── export_schema.sql      # Database schema
 │   ├── manage.py               # Django management
 │   └── requirements.txt        # Python dependencies
-│
-├── docs/                        # Documentation
-│   └── PROJECT_REPORT.md       # Full project report
 │
 ├── .gitignore                  # Git ignore file
 └── README.md                   # This file
@@ -206,9 +202,8 @@ Creates:
 
 ## Documentation
 
-- **Full Report:** [docs/PROJECT_REPORT.md](docs/PROJECT_REPORT.md)
 - **Database Schema:** [backend/scripts/export_schema.sql](backend/scripts/export_schema.sql)
 
 ## License
 
-Course project for DS5003.
+Course project for CityuDS5003.
