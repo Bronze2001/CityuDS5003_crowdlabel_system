@@ -403,45 +403,12 @@ WHERE user_id = ? AND is_correct IS NOT NULL;
 
 ## 7. Challenges and Lessons Learned
 
-### 7.1 Challenges Encountered
-
-| Challenge | Description | Solution |
-|-----------|-------------|----------|
-| **Race Condition** | Multiple users submitting for same task simultaneously | Used `SELECT FOR UPDATE` row-level locking |
-| **CORS Issues** | Frontend couldn't access backend API | Configured `django-cors-headers` with credentials |
-| **Session Auth** | CSRF token blocking API requests | Created `CsrfExemptSessionAuthentication` class |
-| **Decimal Precision** | Money stored as float caused rounding errors | Changed to `DECIMAL(10,2)` type |
-| **N+1 Query** | Payment calculation was slow | Used `aggregate()` and `annotate()` |
+### 7.1 Challenges
+   Firstly, when designing a database that closely resembled real-world scenarios, we discovered that the business logic wasn't as simple and straightforward as it seemed. Therefore, we implemented majority voting and administrator intervention, although this still appeared somewhat overly simplistic. Then came the database design itself. From the initial design to the final, running database, two rounds of fields were added because our initial simple table design couldn't handle all possible scenarios. This demonstrated that in practice, we need a cycle of design, execution, and reflection to find solutions.
 
 ### 7.2 Lessons Learned
 
-1. **Database Design First**
-   - Proper schema design saves time later
-   - Think about indexes during design phase, not after
-
-2. **Transaction Safety**
-   - Financial operations must use atomic transactions
-   - Row-level locking is essential for concurrent access
-
-3. **API Design**
-   - RESTful conventions make frontend integration easier
-   - Consistent error response format helps debugging
-
-4. **Authentication**
-   - Session-based auth works well for web apps
-   - CORS configuration is critical for frontend-backend separation
-
-5. **Testing**
-   - Generate test data early for realistic testing
-   - Edge cases (empty results, conflicts) must be handled
-
-### 7.3 Future Improvements
-
-- [ ] Add JWT authentication for mobile app support
-- [ ] Implement image upload to cloud storage (S3)
-- [ ] Add email notifications for payments
-- [ ] Create annotator ranking/leaderboard
-- [ ] Support batch image upload for admins
+   We realized the practical significance of each field in business operations. Many fields that might seem unimportant at first glance are indispensable parts of business processes. Conversely, the complexity of the business logic is positively correlated with the sophistication of the field design; only a sufficiently refined and reasonable database design can achieve efficient and robust business operations.
 
 ---
 
@@ -467,7 +434,7 @@ python manage.py migrate
 python scripts/generate_test_data.py
 python manage.py runserver
 
-# Frontend
+# Frontendcd
 cd frontend
 npm install
 npm run dev
