@@ -54,7 +54,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'crowdlabel_db',
         'USER': 'root',
-        'PASSWORD': 'Ilovecu1314',  # your MySQL password
+        'PASSWORD': '',  # your MySQL password
         'HOST': 'localhost',
         'PORT': '3306',
     }
