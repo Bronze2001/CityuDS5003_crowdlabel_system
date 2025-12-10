@@ -102,7 +102,7 @@ const AnnotatorDashboard = ({ onLogout }: { user: User, onLogout: () => void }) 
         <h1 className="font-bold text-xl flex items-center gap-2"><CheckSquare/> Workspace</h1>
         <div className="flex gap-6 items-center">
           <div className="text-right">
-            <div className="text-xs text-slate-400">PENDING</div>
+            <div className="text-xs text-slate-400">UNPAID SALARY</div>
             <div className="font-mono font-bold text-amber-600">${stats.pendingBalance.toFixed(2)}</div>
           </div>
           <div className="text-right">
@@ -262,7 +262,7 @@ const AdminDashboard = ({ onLogout }: { user: User, onLogout: () => void }) => {
          {tab === 'payroll' && (
            <div className="bg-white p-6 rounded shadow">
              <div className="flex justify-between mb-4">
-               <h2 className="font-bold text-xl">Pending Payments</h2>
+              <h2 className="font-bold text-xl">Unpaid Salary</h2>
                <button onClick={handlePayroll} disabled={unpaid.length===0} className="bg-emerald-600 text-white px-4 py-2 rounded font-bold disabled:opacity-50">
                  Settle All
                </button>
