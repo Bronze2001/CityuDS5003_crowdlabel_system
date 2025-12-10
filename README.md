@@ -128,14 +128,14 @@ Frontend runs at `http://localhost:5173`
 
 1. **api_user** - User table
    - Fields: `id`, `username`, `role`, `status`, `balance_wallet`
-   - Indexes: `role`, `status`
+   - Indexes: `username` (UNIQUE)
 
 2. **api_image** - Image task table
-   - Fields: `id`, `image_url`, `category_options`, `final_label`, `review_status`, `bounty`, `assigned_count`, `status`
-   - Indexes: `(status, assigned_count)`, `review_status`
+   - Fields: `id`, `image_url`, `category_options`, `final_label`, `review_status`, `bounty`, `assigned_count`, `status`, `created_at`
+   - Indexes: `(status, assigned_count)`
 
 3. **api_annotation** - Annotation table
-   - Fields: `id`, `user_id`, `image_id`, `submitted_label`, `is_correct`, `payment_id`
+   - Fields: `id`, `user_id`, `image_id`, `submitted_label`, `is_correct`, `payment_id`, `created_at`
    - Unique: `(user_id, image_id)` - prevent duplicate
 
 4. **api_payment** - Payment table
@@ -154,8 +154,8 @@ python scripts/generate_test_data.py
 
 Creates:
 - Admin: `admin` / `admin123`
-- Annotators: `annotator1-5` / `123`
-- 5 image tasks with sample annotations
+- Annotators: `annotator1-10` / `123`
+- 1000 image tasks with sample annotations
 
 ## API Endpoints
 
