@@ -84,7 +84,7 @@ def query_3_unpaid_users():
         print(f"  - {item['user__username']}: ${item['total_amount']}")
     print(f"Time: {elapsed:.2f}ms")
 
-def query_4_user_accuracy(user_id=2):
+def query_4_user_accuracy(user_id=17):
     """Query 4: User accuracy rate"""
     print("\n[Query 4] User Accuracy Rate")
     print_separator()
